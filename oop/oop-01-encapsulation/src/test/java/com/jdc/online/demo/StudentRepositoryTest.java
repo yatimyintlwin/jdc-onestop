@@ -6,15 +6,17 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 @TestMethodOrder(value = OrderAnnotation.class)
 public class StudentRepositoryTest {
 
-	static StudentRepository repo;
+	static StudentRepository repo = new StudentRepository();
 
 	@Order(1)
 	@ParameterizedTest
+	@CsvFileSource(resources = "/students.txt")
 	void test_add_student(int id, String name, String phone, String email) {
 
 		var input = new Student(name, phone, email);
@@ -25,6 +27,7 @@ public class StudentRepositoryTest {
 
 	@Order(2)
 	@ParameterizedTest
+	@CsvFileSource(resources = "/students.txt")
 	void test_find_by_id(int id, String name, String phone, String email) {
 
 		var output = repo.findByID(id);
