@@ -3,19 +3,15 @@ package com.jdc.demo;
 public class Car {
 
 	private String type;
-	
+
 	{
 		System.out.println("Init Block of Car");
 	}
-	
+
 	public Car() {
 		super();
 		this.type = "Car";
 		System.out.println("Default Constructor of Car");
-	}
-	
-	private void secretMethod() {
-		System.out.println("This is Secret Method");
 	}
 
 	public Car(String type) {
