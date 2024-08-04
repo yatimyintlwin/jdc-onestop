@@ -28,6 +28,9 @@ public class ConsoleApplication {
 			var feature = getUserSelectedFeature();
 
 			// Execute Selected Feature
+			feature.showMenu();
+			System.out.println();
+			
 			feature.doBusiness();
 
 		} while (askTodoAgain());
@@ -57,7 +60,10 @@ public class ConsoleApplication {
 	}
 
 	private boolean askTodoAgain() {
-		return "Y".equalsIgnoreCase(UserInputs.readString("Do you want to do again? (Y/Other) : "));
+		System.out.println();
+		var result = UserInputs.readString("Do you want to do again? (Y/Other) : ");
+		System.out.println();
+		return "Y".equalsIgnoreCase(result);
 	}
 
 }
