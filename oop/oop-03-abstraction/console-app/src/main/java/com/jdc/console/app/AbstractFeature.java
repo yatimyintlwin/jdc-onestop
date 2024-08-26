@@ -12,15 +12,15 @@ public abstract class AbstractFeature {
 	}
 
 	public abstract void doBusiness();
-	
+
 	public int getId() {
 		return id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public void showMenu() {
 		System.out.printf("%d : %s%n", id, name);
 	}
