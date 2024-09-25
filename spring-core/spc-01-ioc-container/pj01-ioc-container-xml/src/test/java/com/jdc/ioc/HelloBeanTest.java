@@ -12,6 +12,9 @@ public class HelloBeanTest {
 	
 			var bean = context.getBean(HelloBean.class);
 			System.out.println(bean.sayHello());
+			
+			var annotatedBean = context.getBean(AnnotatedBean.class);
+			System.out.println(annotatedBean.sayHello());
 		}
 	}
 }
