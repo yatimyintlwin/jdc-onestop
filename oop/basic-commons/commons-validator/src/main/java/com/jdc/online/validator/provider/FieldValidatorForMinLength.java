@@ -18,7 +18,7 @@ public class FieldValidatorForMinLength extends AbstractFieldValidator {
 				field.setAccessible(true);
 				var value = field.get(object);
 				
-				if(null != value && isViolate(value, annotation)) {
+				if(null == value || isViolate(value, annotation)) {
 					return new FieldError(field.getName(), annotation.message());
 				}
 				
@@ -32,11 +32,7 @@ public class FieldValidatorForMinLength extends AbstractFieldValidator {
 
 	private boolean isViolate(Object value, MinLength annotation) {
 		
-		if(value instanceof String str) {
-			return str.length() < annotation.value();
-		}
-		
-		return false;
+		return value.toString().length() < annotation.value();
 	}
 
 }
